@@ -737,4 +737,712 @@
             padding: 1.2rem 2.5rem;
             border: none;
             border-radius: 12px;
- 
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.6);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        /* WhatsApp Button */
+    .whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5),
+                        0 0 0 0 rgba(37, 211, 102, 0.7);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: whatsappPulse 2s ease-in-out infinite;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .whatsapp::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(0);
+            transition: transform 0.4s ease;
+        }
+
+        .whatsapp:hover::before {
+            transform: scale(1.3);
+            opacity: 0;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.15) translateY(-5px);
+            box-shadow: 0 15px 45px rgba(37, 211, 102, 0.6),
+                        0 0 0 10px rgba(37, 211, 102, 0.1);
+        }
+
+        .whatsapp svg {
+            width: 38px;
+            height: 38px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp:hover svg {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 90px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 8px solid rgba(0, 0, 0, 0.9);
+        }
+
+        .whatsapp:hover .whatsapp-tooltip {
+            opacity: 1;
+            transform: translateY(-50%) translateX(-5px);
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5),
+                            0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6),
+                            0 0 0 8px rgba(37, 211, 102, 0);
+            }
+        }
+
+        @keyframes whatsappBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Modal */
+    .modal {
+        display: none;
+        position: fixed;
+            z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        align-items: center;
+        justify-content: center;
+    }
+
+        .modal.active {
+            display: flex;
+        }
+
+    .modal-content {
+            background: var(--dark-light);
+            padding: 3rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+        text-align: center;
+            max-width: 450px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+    .modal-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--success), #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-content p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+    .modal-content button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        color: white;
+        border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+        cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: var(--dark-light);
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+
+            header.scrolled {
+                padding: 0.75rem 1.5rem;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .whatsapp {
+                width: 60px;
+                height: 60px;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .whatsapp svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            .whatsapp-tooltip {
+                display: none;
+            }
+
+            .slides-container {
+                margin: 2rem 1rem;
+            }
+
+            .slide {
+                padding: 2rem 1.5rem;
+            }
+
+            .slide-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+    }
+</style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+<header id="header">
+        <div class="logo-container">
+    <img src="images/logo-alarmix.jpg" alt="Logo Alarmix">
+            <span class="logo-text">Alarmix</span>
+        </div>
+    <nav>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#noticias">Notícias</a>
+        <a href="#contato">Contato</a>
+    </nav>
+</header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Segurança Inteligente para o Futuro</h1>
+            <p>Tecnologia de ponta em segurança eletrônica. Proteja o que mais importa com soluções avançadas e confiáveis.</p>
+            <div class="cta-buttons">
+                <a href="#servicos" class="btn btn-primary">Nossos Serviços</a>
+                <a href="#contato" class="btn btn-secondary">Fale Conosco</a>
+            </div>
+        </div>
+        
+        <div class="slides-container">
+            <div class="slide-arrow prev" onclick="changeSlide(-1)">‹</div>
+            <div class="slide-arrow next" onclick="changeSlide(1)">›</div>
+            <div class="slides-wrapper" id="slidesWrapper">
+                <div class="slide active">
+                    <div class="slide-icon">🎯</div>
+                    <h3>IA e Reconhecimento Facial</h3>
+                    <p>Sistemas de segurança com inteligência artificial que identificam rostos em tempo real e alertam sobre visitantes não autorizados.</p>
+                    <span class="slide-badge">Tecnologia Avançada</span>
+                </div>
+                <div class="slide">
+                    <div class="slide-icon">📱</div>
+                    <h3>Controle Total pelo Smartphone</h3>
+                    <p>Monitore sua propriedade de qualquer lugar do mundo através do seu celular. Ative alarmes, visualize câmeras e receba notificações instantâneas.</p>
+                    <span class="slide-badge">Acesso Remoto</span>
+                </div>
+                <div class="slide">
+                    <div class="slide-icon">☁️</div>
+                    <h3>Armazenamento em Nuvem</h3>
+                    <p>Gravações seguras na nuvem com criptografia de ponta. Nunca perca imagens importantes, mesmo em caso de danos aos equipamentos.</p>
+                    <span class="slide-badge">Segurança Digital</span>
+                </div>
+                <div class="slide">
+                    <div class="slide-icon">🔔</div>
+                    <h3>Alertas Inteligentes</h3>
+                    <p>Notificações instantâneas via WhatsApp, SMS e e-mail quando qualquer movimento suspeito é detectado. Resposta imediata a qualquer ameaça.</p>
+                    <span class="slide-badge">Monitoramento 24/7</span>
+                </div>
+            </div>
+            <div class="slides-controls" id="slidesControls"></div>
+        </div>
+    </section>
+
+<section id="servicos">
+        <div class="section-header">
+            <h2>Nossos Serviços</h2>
+            <p>Soluções completas em segurança eletrônica para residências e empresas</p>
+        </div>
+    <div class="services">
+        <a class="service" href="https://wa.me/5527997628740?text=Solicito%20orçamento%20para%20instalação%20de%20CFTV" target="_blank">
+                <img src="images/cftv.jpg" alt="CFTV" class="service-image">
+            <h3>CFTV</h3>
+                <p>Instalação e manutenção de câmeras de segurança de alta qualidade com monitoramento 24/7.</p>
+        </a>
+        <a class="service" href="https://wa.me/5527997628740?text=Solicito%20orçamento%20para%20instalação%20de%20Alarmes" target="_blank">
+                <img src="images/alarme.jpg" alt="Alarmes" class="service-image">
+            <h3>Alarmes</h3>
+                <p>Sistemas de alarme modernos e inteligentes com notificações instantâneas e controle remoto.</p>
+        </a>
+        <a class="service" href="https://wa.me/5527997628740?text=Solicito%20orçamento%20para%20instalação%20de%20Cerca%20Elétrica" target="_blank">
+                <img src="images/cerca.jpg" alt="Cerca Elétrica" class="service-image">
+            <h3>Cerca Elétrica</h3>
+                <p>Proteção perimetral com cercas elétricas de alta qualidade e máxima segurança.</p>
+        </a>
+        <a class="service" href="https://wa.me/5527997628740?text=Solicito%20orçamento%20para%20instalação%20de%20Câmera%20IP" target="_blank">
+                <img src="images/camera-ip.jpg" alt="Câmera IP" class="service-image">
+            <h3>Câmera IP</h3>
+                <p>Monitoramento inteligente com câmeras IP de alta resolução e acesso remoto via aplicativo.</p>
+        </a>
+        <a class="service" href="https://wa.me/5527997628740?text=Solicito%20orçamento%20para%20instalação%20de%20Sensor%20de%20Movimento" target="_blank">
+                <img src="images/sensor.jpg" alt="Sensor de Movimento" class="service-image">
+            <h3>Sensor de Movimento</h3>
+                <p>Segurança reforçada com sensores de movimento precisos e tecnologia de detecção avançada.</p>
+        </a>
+    </div>
+</section>
+
+<section id="sobre">
+        <div class="section-header">
+    <h2>Sobre Nós</h2>
+            <p>Especialistas em segurança eletrônica com anos de experiência</p>
+        </div>
+        <div class="about-content">
+    <p>A Alarmix é especializada em soluções de segurança eletrônica, oferecendo serviços de instalação e manutenção de sistemas de CFTV, alarmes, cercas elétricas, câmeras IP e sensores de movimento. Nosso compromisso é garantir a tranquilidade e proteção de nossos clientes com tecnologia de ponta e atendimento personalizado.</p>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Segurança Total</h3>
+                    <p>Proteção completa para seu patrimônio</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Tecnologia Avançada</h3>
+                    <p>Equipamentos de última geração</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">👨‍💼</div>
+                    <h3>Atendimento Especializado</h3>
+                    <p>Equipe qualificada e experiente</p>
+                </div>
+            </div>
+        </div>
+</section>
+
+    <section id="noticias">
+        <div class="section-header">
+            <h2>Casos de Sucesso</h2>
+            <p>Invasões barradas com tecnologia de segurança avançada</p>
+        </div>
+        <div class="news-grid">
+            <div class="news-card">
+                <span class="news-badge">✅ Caso Real</span>
+                <h3>Condomínio Residencial - Vitória/ES</h3>
+                <div class="news-date">📅 Janeiro 2025</div>
+                <p>Três indivíduos tentaram invadir o condomínio durante a madrugada. O sistema de CFTV com IA detectou movimento suspeito e acionou automaticamente o alarme. A cerca elétrica impediu a escalada do muro e as câmeras registraram todo o ocorrido. A polícia foi acionada imediatamente e os invasores foram presos em flagrante.</p>
+                <div class="news-stats">
+                    <div class="news-stat">
+                        <span class="news-stat-value">3</span>
+                        <span class="news-stat-label">Invasores</span>
+                    </div>
+                    <div class="news-stat">
+                        <span class="news-stat-value">0</span>
+                        <span class="news-stat-label">Danos</span>
+                    </div>
+                    <div class="news-stat">
+                        <span class="news-stat-value">100%</span>
+                        <span class="news-stat-label">Proteção</span>
+                    </div>
+                </div>
+            </div>
+            <div class="news-card">
+                <span class="news-badge">✅ Caso Real</span>
+                <h3>Condomínio Empresarial - Vila Velha/ES</h3>
+                <div class="news-date">📅 Dezembro 2024</div>
+                <p>Uma tentativa de invasão foi frustrada pelo sistema integrado de segurança. Sensores de movimento detectaram atividade anormal no perímetro às 2h da manhã. As câmeras IP com visão noturna capturaram imagens em alta definição e o sistema enviou alertas para a central de monitoramento e para os celulares dos responsáveis. A ação rápida impediu qualquer tentativa de acesso.</p>
+                <div class="news-stats">
+                    <div class="news-stat">
+                        <span class="news-stat-value">2</span>
+                        <span class="news-stat-label">Tentativas</span>
+                    </div>
+                    <div class="news-stat">
+                        <span class="news-stat-value">30s</span>
+                        <span class="news-stat-label">Resposta</span>
+                    </div>
+                    <div class="news-stat">
+                        <span class="news-stat-value">100%</span>
+                        <span class="news-stat-label">Eficácia</span>
+                    </div>
+                </div>
+            </div>
+            <div class="news-card">
+                <span class="news-badge">✅ Caso Real</span>
+                <h3>Residência de Alto Padrão - Serra/ES</h3>
+                <div class="news-date">📅 Novembro 2024</div>
+                <p>Um grupo organizado tentou invadir uma residência durante a noite. O sistema de alarme com sensores de movimento e câmeras com detecção de pessoas identificou a ameaça antes mesmo de qualquer contato físico. A cerca elétrica e o alarme sonoro alertaram toda a vizinhança. As imagens em alta resolução foram fundamentais para a identificação e prisão dos suspeitos.</p>
+                <div class="news-stats">
+                    <div class="news-stat">
+                        <span class="news-stat-value">4</span>
+                        <span class="news-stat-label">Suspeitos</span>
+                    </div>
+                    <div class="news-stat">
+                        <span class="news-stat-value">0</span>
+                        <span class="news-stat-label">Perdas</span>
+                    </div>
+                    <div class="news-stat">
+                        <span class="news-stat-value">100%</span>
+                        <span class="news-stat-label">Segurança</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<section id="contato">
+        <div class="section-header">
+    <h2>Fale Conosco</h2>
+            <p>Entre em contato e solicite seu orçamento</p>
+        </div>
+        <div class="contact-info">
+            <p>📞 <a href="tel:+5527997628740">(27) 99762-8740</a></p>
+            <p>📞 <a href="tel:+5527998844539">(27) 99884-4539</a></p>
+        </div>
+    <form id="contact-form">
+            <div class="form-group">
+                <input type="text" name="user_name" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="user_email" placeholder="Seu e-mail" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
+            </div>
+            <button type="submit">Enviar Mensagem</button>
+    </form>
+</section>
+
+<div id="success-modal" class="modal">
+    <div class="modal-content">
+            <h2>✅ Mensagem Enviada!</h2>
+            <p>Obrigado pelo contato. Você receberá um e-mail de confirmação em breve.</p>
+        <button id="close-modal">Fechar</button>
+    </div>
+</div>
+
+<footer>
+        <p>📞 <a href="tel:+5527997628740">(27) 99762-8740</a> | 📞 <a href="tel:+5527998844539">(27) 99884-4539</a></p>
+    <p>© 2025 Alarmix - Todos os direitos reservados</p>
+</footer>
+
+    <a href="https://wa.me/5527997628740?text=Olá,%20gostaria%20de%20mais%20informações" class="whatsapp" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        <span class="whatsapp-tooltip">Fale conosco no WhatsApp</span>
+    </a>
+
+<script src="js/email.min.js"></script>
+<script>
+        (function() {
+            emailjs.init("pgBWkAm0W7AX-TOei");
+        })();
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        const animatedElements = document.querySelectorAll('section, .service, .feature, .news-card');
+        animatedElements.forEach(el => observer.observe(el));
+
+        // Slides Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slidesWrapper = document.getElementById('slidesWrapper');
+        const slidesControls = document.getElementById('slidesControls');
+
+        // Create dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(i);
+            slidesControls.appendChild(dot);
+        }
+
+        function updateSlides() {
+            slidesWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.slide-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            updateSlides();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlides();
+        }
+
+        // Auto-play slides
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+
+        // Header scroll effect
+const header = document.getElementById('header');
+        let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Form submission
+const modal = document.getElementById('success-modal');
+const closeModalBtn = document.getElementById('close-modal');
+        const contactForm = document.getElementById('contact-form');
+
+        contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Enviando...';
+            submitButton.disabled = true;
+
+    const formData = {
+        user_name: this.user_name.value,
+        user_email: this.user_email.value,
+        message: this.message.value
+    };
+
+    emailjs.send('service_pyxghb6', 'template_6i6hmh6', formData)
+    .then(() => {
+        return emailjs.send('service_pyxghb6', 'template_42nu153', formData);
+    })
+    .then(() => {
+                    modal.classList.add('active');
+        this.reset();
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+    })
+    .catch(err => {
+        console.error("Erro ao enviar:", err);
+                    alert("Ocorreu um erro ao enviar sua mensagem. Tente novamente ou entre em contato pelo WhatsApp.");
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                });
+        });
+
+        // Modal close
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 100;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+    });
+});
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease-in';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+</script>
+</body>
+</html>
