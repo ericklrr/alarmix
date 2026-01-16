@@ -264,56 +264,6 @@
             margin-top: 1rem;
         }
 
-        /* Ajustes para mobile */
-        @media (max-width: 600px) {
-            .slides-container {
-                max-width: 98vw;
-                margin: 1rem 0.2rem;
-                border-radius: 12px;
-                box-shadow: 0 6px 24px rgba(0,0,0,0.25);
-            }
-            .slide {
-                padding: 1.2rem 0.5rem;
-                gap: 0.7rem;
-            }
-            .slide-icon {
-                font-size: 2.2rem;
-                margin-bottom: 0.5rem;
-            }
-            .slide h3 {
-                font-size: 1.1rem;
-                margin-bottom: 0.5rem;
-            }
-            .slide p {
-                font-size: 0.95rem;
-                max-width: 95vw;
-            }
-            .slide-badge {
-                padding: 0.3rem 0.7rem;
-                font-size: 0.8rem;
-                margin-top: 0.5rem;
-            }
-            .slide-arrow {
-                width: 32px;
-                height: 32px;
-                font-size: 1rem;
-            }
-            .slide-arrow.prev {
-                left: 0.2rem;
-            }
-            .slide-arrow.next {
-                right: 0.2rem;
-            }
-            .slides-controls {
-                gap: 0.5rem;
-                margin-top: 1rem;
-            }
-            .slide-dot {
-                width: 8px;
-                height: 8px;
-            }
-        }
-
         .slides-controls {
             display: flex;
             justify-content: center;
@@ -877,128 +827,6 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-            /* Produtos / E-commerce */
-            .products-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-                gap: 1.5rem;
-                margin-top: 2rem;
-            }
-
-            .product-card {
-                background: var(--glass);
-                border: 1px solid var(--glass-border);
-                border-radius: 12px;
-                padding: 1rem;
-                text-align: center;
-            }
-
-            .product-card img {
-                width: 100%;
-                height: 150px;
-                object-fit: cover;
-                border-radius: 8px;
-                margin-bottom: 0.75rem;
-            }
-
-            .product-name {
-                font-weight: 700;
-                margin-bottom: 0.25rem;
-            }
-
-            .product-price {
-                color: var(--primary-light);
-                font-weight: 700;
-                margin-bottom: 0.75rem;
-            }
-
-            .add-cart-btn {
-                background: linear-gradient(135deg, var(--primary), var(--primary-light));
-                color: white;
-                border: none;
-                padding: 0.6rem 1rem;
-                border-radius: 10px;
-                cursor: pointer;
-                font-weight: 700;
-            }
-
-            .cart-toggle {
-                position: fixed;
-                bottom: 6.5rem;
-                right: 1.5rem;
-                background: linear-gradient(135deg, #0ea5e9, #0284c7);
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-                z-index: 1001;
-                box-shadow: 0 8px 25px rgba(2, 132, 199, 0.35);
-                border: 3px solid rgba(255,255,255,0.06);
-                cursor: pointer;
-            }
-
-            .cart-panel {
-                position: fixed;
-                right: 0;
-                top: 0;
-                width: 360px;
-                max-width: 100%;
-                height: 100vh;
-                background: linear-gradient(180deg, #071427, #0b1220);
-                color: var(--text);
-                transform: translateX(100%);
-                transition: transform 0.35s ease;
-                z-index: 1100;
-                padding: 1.5rem;
-                border-left: 1px solid rgba(255,255,255,0.04);
-                display: flex;
-                flex-direction: column;
-            }
-
-            .cart-panel.open { transform: translateX(0); }
-
-            .cart-items { flex: 1; overflow: auto; margin-bottom: 1rem; }
-
-            .cart-item { display:flex; gap:0.75rem; align-items:center; margin-bottom:0.75rem; }
-            .cart-item img { width:56px; height:56px; object-fit:cover; border-radius:8px; }
-            .cart-item .qty { font-weight:700; margin-left:auto; }
-
-            .cart-footer { border-top:1px solid rgba(255,255,255,0.04); padding-top:1rem; }
-
-            .checkout-wa { background: linear-gradient(135deg,#25D366,#128C7E); color:white; border:none; padding:0.8rem 1rem; border-radius:10px; width:100%; font-weight:700; }
-
-            .purchase-notifs {
-                position: fixed;
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: 1rem;
-                z-index: 999;
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-                pointer-events: none;
-            }
-
-            .purchase-notif {
-                background: rgba(0,0,0,0.7);
-                color: white;
-                padding: 0.5rem 0.8rem;
-                border-radius: 999px;
-                display: flex;
-                gap: 0.6rem;
-                align-items: center;
-                min-width: 220px;
-                box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-                opacity: 0;
-                transform: translateY(10px);
-                transition: all 0.6s cubic-bezier(0.2,0.8,0.2,1);
-                pointer-events: auto;
-            }
-
-            .purchase-notif.show { opacity: 1; transform: translateY(0); }
 
         .whatsapp-tooltip::after {
             content: '';
@@ -1287,43 +1115,33 @@
         </div>
     </section>
 
-<section id="produtos">
-        <div class="section-header">
-            <h2>Produtos</h2>
-            <p>Compre nossos equipamentos e acessórios diretamente pelo WhatsApp.</p>
-        </div>
-        <div class="products-grid" id="productsGrid">
-            <!-- Produtos serão renderizados por JS -->
-        </div>
-</section>
-
 <section id="servicos">
         <div class="section-header">
             <h2>Nossos Serviços</h2>
             <p>Soluções completas em segurança eletrônica para residências e empresas</p>
         </div>
     <div class="services">
-        <a class="service" href="https://wa.me/5527992478228?text=Solicito%20orçamento%20para%20instalação%20de%20CFTV" target="_blank">
+        <a class="service" href="https://wa.me/5527997628740?text=Solicito%20orçamento%20para%20instalação%20de%20CFTV" target="_blank">
                 <img src="images/cftv.jpg" alt="CFTV" class="service-image">
             <h3>CFTV</h3>
                 <p>Instalação e manutenção de câmeras de segurança de alta qualidade com monitoramento 24/7.</p>
         </a>
-        <a class="service" href="https://wa.me/5527992478228?text=Solicito%20orçamento%20para%20instalação%20de%20Alarmes" target="_blank">
+        <a class="service" href="https://wa.me/5527997628740?text=Solicito%20orçamento%20para%20instalação%20de%20Alarmes" target="_blank">
                 <img src="images/alarme.jpg" alt="Alarmes" class="service-image">
             <h3>Alarmes</h3>
                 <p>Sistemas de alarme modernos e inteligentes com notificações instantâneas e controle remoto.</p>
         </a>
-        <a class="service" href="https://wa.me/5527992478228?text=Solicito%20orçamento%20para%20instalação%20de%20Cerca%20Elétrica" target="_blank">
+        <a class="service" href="https://wa.me/5527997628740?text=Solicito%20orçamento%20para%20instalação%20de%20Cerca%20Elétrica" target="_blank">
                 <img src="images/cerca.jpg" alt="Cerca Elétrica" class="service-image">
             <h3>Cerca Elétrica</h3>
                 <p>Proteção perimetral com cercas elétricas de alta qualidade e máxima segurança.</p>
         </a>
-        <a class="service" href="https://wa.me/5527992478228?text=Solicito%20orçamento%20para%20instalação%20de%20Câmera%20IP" target="_blank">
+        <a class="service" href="https://wa.me/5527997628740?text=Solicito%20orçamento%20para%20instalação%20de%20Câmera%20IP" target="_blank">
                 <img src="images/camera-ip.jpg" alt="Câmera IP" class="service-image">
             <h3>Câmera IP</h3>
                 <p>Monitoramento inteligente com câmeras IP de alta resolução e acesso remoto via aplicativo.</p>
         </a>
-        <a class="service" href="https://wa.me/5527992478228?text=Solicito%20orçamento%20para%20instalação%20de%20Sensor%20de%20Movimento" target="_blank">
+        <a class="service" href="https://wa.me/5527997628740?text=Solicito%20orçamento%20para%20instalação%20de%20Sensor%20de%20Movimento" target="_blank">
                 <img src="images/sensor.jpg" alt="Sensor de Movimento" class="service-image">
             <h3>Sensor de Movimento</h3>
                 <p>Segurança reforçada com sensores de movimento precisos e tecnologia de detecção avançada.</p>
@@ -1433,8 +1251,8 @@
             <p>Entre em contato e solicite seu orçamento</p>
         </div>
         <div class="contact-info">
-            <p>📞 <a href="tel:+5527992478228">(27) 99247-8228</a></p>
-            <p>📞 <a href="tel:+5527992427864">(27) 99242-7864</a></p>
+            <p>📞 <a href="tel:+5527997628740">(27) 99762-8740</a></p>
+            <p>📞 <a href="tel:+5527998844539">(27) 99884-4539</a></p>
         </div>
     <form id="contact-form">
             <div class="form-group">
@@ -1450,26 +1268,6 @@
     </form>
 </section>
 
-<!-- Carrinho e notificações -->
-<div class="cart-toggle" id="cartToggle" title="Abrir carrinho">
-    🛒
-</div>
-
-<aside class="cart-panel" id="cartPanel" aria-hidden="true">
-    <h3>Seu Carrinho</h3>
-    <div class="cart-items" id="cartItems"></div>
-    <div class="cart-footer">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
-            <strong>Total:</strong>
-            <strong id="cartTotal">R$ 0,00</strong>
-        </div>
-        <button id="checkoutWa" class="checkout-wa">Finalizar no WhatsApp</button>
-        <button id="clearCart" style="margin-top:0.6rem;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:0.5rem 0.75rem;border-radius:10px;">Limpar Carrinho</button>
-    </div>
-</aside>
-
-<div class="purchase-notifs" id="purchaseNotifs"></div>
-
 <div id="success-modal" class="modal">
     <div class="modal-content">
             <h2>✅ Mensagem Enviada!</h2>
@@ -1479,29 +1277,16 @@
 </div>
 
 <footer>
-        <p>📞 <a href="tel:+5527992478228">(27) 99247-8228</a> | 📞 <a href="tel:+5527992427864">(27) 99242-7864</a></p>
+        <p>📞 <a href="tel:+5527997628740">(27) 99762-8740</a> | 📞 <a href="tel:+5527998844539">(27) 99884-4539</a></p>
     <p>© 2025 Alarmix - Todos os direitos reservados</p>
 </footer>
 
-    <button class="whatsapp" id="floatingWaBtn" aria-label="WhatsApp">
+    <a href="https://wa.me/5527997628740?text=Olá,%20gostaria%20de%20mais%20informações" class="whatsapp" target="_blank" aria-label="WhatsApp">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
         <span class="whatsapp-tooltip">Fale conosco no WhatsApp</span>
-    </button>
-
-    <!-- Modal de escolha de número WhatsApp -->
-    <div id="wa-choice-modal" class="modal" aria-hidden="true">
-        <div class="modal-content">
-            <h2>Escolha um número</h2>
-            <p>Selecione o número para finalizar pelo WhatsApp:</p>
-            <div style="display:flex;flex-direction:column;gap:0.6rem;margin-top:1rem">
-                <button id="waChoiceBtn1" class="checkout-wa">(27) 99762-8740</button>
-                <button id="waChoiceBtn2" class="checkout-wa">(27) 99242-7864</button>
-                <button id="waChoiceClose" style="margin-top:0.6rem;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:0.6rem;border-radius:10px;">Fechar</button>
-            </div>
-        </div>
-    </div>
+    </a>
 
 <script src="js/email.min.js"></script>
 <script>
@@ -1657,152 +1442,6 @@ const closeModalBtn = document.getElementById('close-modal');
                 document.body.style.transition = 'opacity 0.5s ease-in';
                 document.body.style.opacity = '1';
             }, 100);
-        });
-
-        // ------------------ Loja / Carrinho / WhatsApp ------------------
-        window.addEventListener('load', () => {
-            const shopPhone = '5527992478228';'5527992427864' // altere se necessário
-            const products = [
-                { id: 'p1', name: 'Kit CFTV - 4 câmeras', price: 1299.90, img: 'images/cftv.jpg' },
-                { id: 'p2', name: 'Kit Alarme Residencial', price: 499.90, img: 'images/alarme.jpg' },
-                { id: 'p3', name: 'Cerca Elétrica - Módulo', price: 799.90, img: 'images/cerca.jpg' },
-                { id: 'p4', name: 'Câmera IP 1080p', price: 249.90, img: 'images/camera-ip.jpg' },
-                { id: 'p5', name: 'Sensor de Movimento', price: 129.90, img: 'images/sensor.jpg' }
-            ];
-
-            const cart = {};
-
-            const productsGrid = document.getElementById('productsGrid');
-            const cartToggle = document.getElementById('cartToggle');
-            const cartPanel = document.getElementById('cartPanel');
-            const cartItemsEl = document.getElementById('cartItems');
-            const cartTotalEl = document.getElementById('cartTotal');
-            const checkoutWa = document.getElementById('checkoutWa');
-            const clearCartBtn = document.getElementById('clearCart');
-            const purchaseNotifs = document.getElementById('purchaseNotifs');
-
-            function formatBRL(value){
-                return 'R$ ' + value.toFixed(2).replace('.', ',');
-            }
-
-            function renderProducts(){
-                productsGrid.innerHTML = '';
-                products.forEach(p => {
-                    const card = document.createElement('div');
-                    card.className = 'product-card';
-                    card.innerHTML = `
-                        <img src="${p.img}" alt="${p.name}">
-                        <div class="product-name">${p.name}</div>
-                        <div class="product-price">${formatBRL(p.price)}</div>
-                        <button class="add-cart-btn" data-id="${p.id}">Adicionar</button>
-                    `;
-                    productsGrid.appendChild(card);
-                });
-
-                productsGrid.querySelectorAll('.add-cart-btn').forEach(btn => {
-                    btn.addEventListener('click', () => addToCart(btn.dataset.id));
-                });
-            }
-
-            function addToCart(id){
-                const p = products.find(x => x.id === id);
-                if(!p) return;
-                if(!cart[id]) cart[id] = { ...p, qty: 0 };
-                cart[id].qty++;
-                updateCartUI();
-                flashNotif(`${p.name} adicionado ao carrinho`);
-            }
-
-            function updateCartUI(){
-                cartItemsEl.innerHTML = '';
-                let total = 0;
-                Object.values(cart).forEach(item => {
-                    total += item.price * item.qty;
-                    const el = document.createElement('div');
-                    el.className = 'cart-item';
-                    el.innerHTML = `
-                        <img src="${item.img}" alt="${item.name}">
-                        <div style="min-width:0">
-                            <div style="font-weight:700">${item.name}</div>
-                            <div style="font-size:0.9rem;color:var(--text-muted)">${formatBRL(item.price)} x ${item.qty}</div>
-                        </div>
-                        <div class="qty">${item.qty}</div>
-                    `;
-                    cartItemsEl.appendChild(el);
-                });
-                cartTotalEl.textContent = formatBRL(total);
-            }
-
-            function toggleCart(open){
-                if(open === undefined) open = !cartPanel.classList.contains('open');
-                cartPanel.classList.toggle('open', open);
-                cartPanel.setAttribute('aria-hidden', (!open).toString());
-            }
-
-            function createWhatsAppLink(){
-                const lines = [];
-                let total = 0;
-                Object.values(cart).forEach(it => {
-                    lines.push(`${it.qty} x ${it.name} - ${formatBRL(it.price)} cada`);
-                    total += it.price * it.qty;
-                });
-                lines.push('---');
-                lines.push('Total: ' + formatBRL(total));
-                const text = encodeURIComponent(lines.join('\n'));
-                return `https://wa.me/${shopPhone}?text=${text}`;
-            }
-
-            function checkoutToWhatsApp(){
-                if(Object.keys(cart).length === 0){
-                    alert('Seu carrinho está vazio. Adicione produtos antes de finalizar.');
-                    return;
-                }
-                window.open(createWhatsAppLink(), '_blank');
-            }
-
-            function clearCart(){
-                Object.keys(cart).forEach(k => delete cart[k]);
-                updateCartUI();
-            }
-
-            function flashNotif(msg){
-                const el = document.createElement('div');
-                el.className = 'purchase-notif show';
-                el.textContent = msg;
-                purchaseNotifs.appendChild(el);
-                setTimeout(()=>{ el.classList.remove('show'); el.style.transition='opacity 0.6s'; }, 1800);
-                setTimeout(()=> el.remove(), 2600);
-            }
-
-            function showPurchaseNotif(product){
-                const el = document.createElement('div');
-                el.className = 'purchase-notif';
-                el.innerHTML = `<img src="${product.img}" style="width:40px;height:40px;border-radius:6px;object-fit:cover"> <div style="font-size:0.95rem"><strong>${product.name}</strong> comprado agora</div>`;
-                purchaseNotifs.appendChild(el);
-                setTimeout(()=> el.classList.add('show'), 50);
-                setTimeout(()=>{ el.classList.remove('show'); }, 7000);
-                setTimeout(()=> el.remove(), 7600);
-            }
-
-            function simulatePurchase(){
-                const p = products[Math.floor(Math.random()*products.length)];
-                showPurchaseNotif(p);
-            }
-
-            // Eventos
-            cartToggle.addEventListener('click', () => toggleCart());
-            checkoutWa.addEventListener('click', checkoutToWhatsApp);
-            clearCartBtn.addEventListener('click', () => { if(confirm('Limpar carrinho?')) clearCart(); });
-
-            // Inicialização
-            renderProducts();
-            updateCartUI();
-
-            // Simular primeiras notificações: a cada 5 minutos
-            setInterval(simulatePurchase, 300000); // 300000ms = 5min
-
-            // Para demonstrar no carregamento, mostrar uma pequena notificação após 8s
-            setTimeout(() => simulatePurchase(), 8000);
         });
 </script>
 </body>
