@@ -264,6 +264,56 @@
             margin-top: 1rem;
         }
 
+        /* Ajustes para mobile */
+        @media (max-width: 600px) {
+            .slides-container {
+                max-width: 98vw;
+                margin: 1rem 0.2rem;
+                border-radius: 12px;
+                box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+            }
+            .slide {
+                padding: 1.2rem 0.5rem;
+                gap: 0.7rem;
+            }
+            .slide-icon {
+                font-size: 2.2rem;
+                margin-bottom: 0.5rem;
+            }
+            .slide h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+            .slide p {
+                font-size: 0.95rem;
+                max-width: 95vw;
+            }
+            .slide-badge {
+                padding: 0.3rem 0.7rem;
+                font-size: 0.8rem;
+                margin-top: 0.5rem;
+            }
+            .slide-arrow {
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+            }
+            .slide-arrow.prev {
+                left: 0.2rem;
+            }
+            .slide-arrow.next {
+                right: 0.2rem;
+            }
+            .slides-controls {
+                gap: 0.5rem;
+                margin-top: 1rem;
+            }
+            .slide-dot {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
         .slides-controls {
             display: flex;
             justify-content: center;
@@ -387,4 +437,1374 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+    section {
+        position: relative;
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+            text-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+    .service {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .service.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(220, 38, 38, 0.4);
+        }
+
+        .service:hover::before {
+            opacity: 0.1;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.4s ease;
+        }
+
+        .service:hover .service-image {
+            transform: scale(1.05);
+        }
+
+        .service h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+
+        .service p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        #sobre {
+            background: linear-gradient(180deg, transparent 0%, rgba(220, 38, 38, 0.05) 100%);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* News Section */
+        #noticias {
+            background: linear-gradient(180deg, transparent 0%, rgba(220, 38, 38, 0.08) 100%);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .news-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .news-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .news-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--primary-light));
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+        }
+
+        .news-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(220, 38, 38, 0.3);
+        }
+
+        .news-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .news-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .news-card .news-date {
+            color: var(--primary-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .news-card p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .news-stats {
+            display: flex;
+            gap: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .news-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+
+        .news-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact Section */
+        #contato {
+            background: linear-gradient(180deg, transparent 0%, rgba(220, 38, 38, 0.05) 100%);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin: 0.5rem 0;
+        }
+
+        .contact-info a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--white);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            font-size: 1rem;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        button[type="submit"] {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.6);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        /* WhatsApp Button */
+    .whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5),
+                        0 0 0 0 rgba(37, 211, 102, 0.7);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: whatsappPulse 2s ease-in-out infinite;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .whatsapp::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(0);
+            transition: transform 0.4s ease;
+        }
+
+        .whatsapp:hover::before {
+            transform: scale(1.3);
+            opacity: 0;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.15) translateY(-5px);
+            box-shadow: 0 15px 45px rgba(37, 211, 102, 0.6),
+                        0 0 0 10px rgba(37, 211, 102, 0.1);
+        }
+
+        .whatsapp svg {
+            width: 38px;
+            height: 38px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp:hover svg {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 90px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+            /* Produtos / E-commerce */
+            .products-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .product-card {
+                background: var(--glass);
+                border: 1px solid var(--glass-border);
+                border-radius: 12px;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .product-card img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 8px;
+                margin-bottom: 0.75rem;
+            }
+
+            .product-name {
+                font-weight: 700;
+                margin-bottom: 0.25rem;
+            }
+
+            .product-price {
+                color: var(--primary-light);
+                font-weight: 700;
+                margin-bottom: 0.75rem;
+            }
+
+            .add-cart-btn {
+                background: linear-gradient(135deg, var(--primary), var(--primary-light));
+                color: white;
+                border: none;
+                padding: 0.6rem 1rem;
+                border-radius: 10px;
+                cursor: pointer;
+                font-weight: 700;
+            }
+
+            .cart-toggle {
+                position: fixed;
+                bottom: 6.5rem;
+                right: 1.5rem;
+                background: linear-gradient(135deg, #0ea5e9, #0284c7);
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                z-index: 1001;
+                box-shadow: 0 8px 25px rgba(2, 132, 199, 0.35);
+                border: 3px solid rgba(255,255,255,0.06);
+                cursor: pointer;
+            }
+
+            .cart-panel {
+                position: fixed;
+                right: 0;
+                top: 0;
+                width: 360px;
+                max-width: 100%;
+                height: 100vh;
+                background: linear-gradient(180deg, #071427, #0b1220);
+                color: var(--text);
+                transform: translateX(100%);
+                transition: transform 0.35s ease;
+                z-index: 1100;
+                padding: 1.5rem;
+                border-left: 1px solid rgba(255,255,255,0.04);
+                display: flex;
+                flex-direction: column;
+            }
+
+            .cart-panel.open { transform: translateX(0); }
+
+            .cart-items { flex: 1; overflow: auto; margin-bottom: 1rem; }
+
+            .cart-item { display:flex; gap:0.75rem; align-items:center; margin-bottom:0.75rem; }
+            .cart-item img { width:56px; height:56px; object-fit:cover; border-radius:8px; }
+            .cart-item .qty { font-weight:700; margin-left:auto; }
+
+            .cart-footer { border-top:1px solid rgba(255,255,255,0.04); padding-top:1rem; }
+
+            .checkout-wa { background: linear-gradient(135deg,#25D366,#128C7E); color:white; border:none; padding:0.8rem 1rem; border-radius:10px; width:100%; font-weight:700; }
+
+            .purchase-notifs {
+                position: fixed;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 1rem;
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                pointer-events: none;
+            }
+
+            .purchase-notif {
+                background: rgba(0,0,0,0.7);
+                color: white;
+                padding: 0.5rem 0.8rem;
+                border-radius: 999px;
+                display: flex;
+                gap: 0.6rem;
+                align-items: center;
+                min-width: 220px;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+                opacity: 0;
+                transform: translateY(10px);
+                transition: all 0.6s cubic-bezier(0.2,0.8,0.2,1);
+                pointer-events: auto;
+            }
+
+            .purchase-notif.show { opacity: 1; transform: translateY(0); }
+
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 8px solid rgba(0, 0, 0, 0.9);
+        }
+
+        .whatsapp:hover .whatsapp-tooltip {
+            opacity: 1;
+            transform: translateY(-50%) translateX(-5px);
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5),
+                            0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6),
+                            0 0 0 8px rgba(37, 211, 102, 0);
+            }
+        }
+
+        @keyframes whatsappBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Modal */
+    .modal {
+        display: none;
+        position: fixed;
+            z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        align-items: center;
+        justify-content: center;
+    }
+
+        .modal.active {
+            display: flex;
+        }
+
+    .modal-content {
+            background: var(--dark-light);
+            padding: 3rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+        text-align: center;
+            max-width: 450px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+    .modal-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--success), #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-content p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+    .modal-content button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        color: white;
+        border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+        cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: var(--dark-light);
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+
+            header.scrolled {
+                padding: 0.75rem 1.5rem;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .whatsapp {
+                width: 60px;
+                height: 60px;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .whatsapp svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            .whatsapp-tooltip {
+                display: none;
+            }
+
+            .slides-container {
+                margin: 2rem 1rem;
+            }
+
+            .slide {
+                padding: 2rem 1.5rem;
+            }
+
+            .slide-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+    }
+</style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+<header id="header">
+        <div class="logo-container">
+    <img src="images/logo-alarmix.jpg" alt="Logo Alarmix">
+            <span class="logo-text">Alarmix</span>
+        </div>
+    <nav>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#noticias">Notícias</a>
+        <a href="#contato">Contato</a>
+    </nav>
+</header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Segurança Inteligente para o Futuro</h1>
+            <p>Tecnologia de ponta em segurança eletrônica. Proteja o que mais importa com soluções avançadas e confiáveis.</p>
+            <div class="cta-buttons">
+                <a href="#servicos" class="btn btn-primary">Nossos Serviços</a>
+                <a href="#contato" class="btn btn-secondary">Fale Conosco</a>
+            </div>
+        </div>
+        
+        <div class="slides-container">
+            <div class="slide-arrow prev" onclick="changeSlide(-1)">‹</div>
+            <div class="slide-arrow next" onclick="changeSlide(1)">›</div>
+            <div class="slides-wrapper" id="slidesWrapper">
+                <div class="slide active">
+                    <div class="slide-icon">🎯</div>
+                    <h3>IA e Reconhecimento Facial</h3>
+                    <p>Sistemas de segurança com inteligência artificial que identificam rostos em tempo real e alertam sobre visitantes não autorizados.</p>
+                    <span class="slide-badge">Tecnologia Avançada</span>
+                </div>
+                <div class="slide">
+                    <div class="slide-icon">📱</div>
+                    <h3>Controle Total pelo Smartphone</h3>
+                    <p>Monitore sua propriedade de qualquer lugar do mundo através do seu celular. Ative alarmes, visualize câmeras e receba notificações instantâneas.</p>
+                    <span class="slide-badge">Acesso Remoto</span>
+                </div>
+                <div class="slide">
+                    <div class="slide-icon">☁️</div>
+                    <h3>Armazenamento em Nuvem</h3>
+                    <p>Gravações seguras na nuvem com criptografia de ponta. Nunca perca imagens importantes, mesmo em caso de danos aos equipamentos.</p>
+                    <span class="slide-badge">Segurança Digital</span>
+                </div>
+                <div class="slide">
+                    <div class="slide-icon">🔔</div>
+                    <h3>Alertas Inteligentes</h3>
+                    <p>Notificações instantâneas via WhatsApp, SMS e e-mail quando qualquer movimento suspeito é detectado. Resposta imediata a qualquer ameaça.</p>
+                    <span class="slide-badge">Monitoramento 24/7</span>
+                </div>
+            </div>
+            <div class="slides-controls" id="slidesControls"></div>
+        </div>
+    </section>
+
+<section id="produtos">
+        <div class="section-header">
+            <h2>Produtos</h2>
+            <p>Compre nossos equipamentos e acessórios diretamente pelo WhatsApp.</p>
+        </div>
+        <div class="products-grid" id="productsGrid">
+            <!-- Produtos serão renderizados por JS -->
+        </div>
+</section>
+
+<section id="servicos">
+        <div class="section-header">
+            <h2>Nossos Serviços</h2>
+            <p>Soluções completas em segurança eletrônica para residências e empresas</p>
+        </div>
+    <div class="services">
+        <a class="service" href="https://wa.me/5527992478228?text=Solicito%20orçamento%20para%20instalação%20de%20CFTV" target="_blank">
+                <img src="images/cftv.jpg" alt="CFTV" class="service-image">
+            <h3>CFTV</h3>
+                <p>Instalação e manutenção de câmeras de segurança de alta qualidade com monitoramento 24/7.</p>
+        </a>
+        <a class="service" href="https://wa.me/5527992478228?text=Solicito%20orçamento%20para%20instalação%20de%20Alarmes" target="_blank">
+                <img src="images/alarme.jpg" alt="Alarmes" class="service-image">
+            <h3>Alarmes</h3>
+                <p>Sistemas de alarme modernos e inteligentes com notificações instantâneas e controle remoto.</p>
+        </a>
+        <a class="service" href="https://wa.me/5527992478228?text=Solicito%20orçamento%20para%20instalação%20de%20Cerca%20Elétrica" target="_blank">
+                <img src="images/cerca.jpg" alt="Cerca Elétrica" class="service-image">
+            <h3>Cerca Elétrica</h3>
+                <p>Proteção perimetral com cercas elétricas de alta qualidade e máxima segurança.</p>
+        </a>
+        <a class="service" href="https://wa.me/5527992478228?text=Solicito%20orçamento%20para%20instalação%20de%20Câmera%20IP" target="_blank">
+                <img src="images/camera-ip.jpg" alt="Câmera IP" class="service-image">
+            <h3>Câmera IP</h3>
+                <p>Monitoramento inteligente com câmeras IP de alta resolução e acesso remoto via aplicativo.</p>
+        </a>
+        <a class="service" href="https://wa.me/5527992478228?text=Solicito%20orçamento%20para%20instalação%20de%20Sensor%20de%20Movimento" target="_blank">
+                <img src="images/sensor.jpg" alt="Sensor de Movimento" class="service-image">
+            <h3>Sensor de Movimento</h3>
+                <p>Segurança reforçada com sensores de movimento precisos e tecnologia de detecção avançada.</p>
+        </a>
+    </div>
+</section>
+
+<section id="sobre">
+        <div class="section-header">
+    <h2>Sobre Nós</h2>
+            <p>Especialistas em segurança eletrônica com anos de experiência</p>
+        </div>
+        <div class="about-content">
+    <p>A Alarmix é especializada em soluções de segurança eletrônica, oferecendo serviços de instalação e manutenção de sistemas de CFTV, alarmes, cercas elétricas, câmeras IP e sensores de movimento. Nosso compromisso é garantir a tranquilidade e proteção de nossos clientes com tecnologia de ponta e atendimento personalizado.</p>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Segurança Total</h3>
+                    <p>Proteção completa para seu patrimônio</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Tecnologia Avançada</h3>
+                    <p>Equipamentos de última geração</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">👨‍💼</div>
+                    <h3>Atendimento Especializado</h3>
+                    <p>Equipe qualificada e experiente</p>
+                </div>
+            </div>
+        </div>
+</section>
+
+    <section id="noticias">
+        <div class="section-header">
+            <h2>Casos de Sucesso</h2>
+            <p>Invasões barradas com tecnologia de segurança avançada</p>
+        </div>
+        <div class="news-grid">
+            <div class="news-card">
+                <span class="news-badge">✅ Caso Real</span>
+                <h3>Condomínio Residencial - Vitória/ES</h3>
+                <div class="news-date">📅 Janeiro 2025</div>
+                <p>Três indivíduos tentaram invadir o condomínio durante a madrugada. O sistema de CFTV com IA detectou movimento suspeito e acionou automaticamente o alarme. A cerca elétrica impediu a escalada do muro e as câmeras registraram todo o ocorrido. A polícia foi acionada imediatamente e os invasores foram presos em flagrante.</p>
+                <div class="news-stats">
+                    <div class="news-stat">
+                        <span class="news-stat-value">3</span>
+                        <span class="news-stat-label">Invasores</span>
+                    </div>
+                    <div class="news-stat">
+                        <span class="news-stat-value">0</span>
+                        <span class="news-stat-label">Danos</span>
+                    </div>
+                    <div class="news-stat">
+                        <span class="news-stat-value">100%</span>
+                        <span class="news-stat-label">Proteção</span>
+                    </div>
+                </div>
+            </div>
+            <div class="news-card">
+                <span class="news-badge">✅ Caso Real</span>
+                <h3>Condomínio Empresarial - Vila Velha/ES</h3>
+                <div class="news-date">📅 Dezembro 2024</div>
+                <p>Uma tentativa de invasão foi frustrada pelo sistema integrado de segurança. Sensores de movimento detectaram atividade anormal no perímetro às 2h da manhã. As câmeras IP com visão noturna capturaram imagens em alta definição e o sistema enviou alertas para a central de monitoramento e para os celulares dos responsáveis. A ação rápida impediu qualquer tentativa de acesso.</p>
+                <div class="news-stats">
+                    <div class="news-stat">
+                        <span class="news-stat-value">2</span>
+                        <span class="news-stat-label">Tentativas</span>
+                    </div>
+                    <div class="news-stat">
+                        <span class="news-stat-value">30s</span>
+                        <span class="news-stat-label">Resposta</span>
+                    </div>
+                    <div class="news-stat">
+                        <span class="news-stat-value">100%</span>
+                        <span class="news-stat-label">Eficácia</span>
+                    </div>
+                </div>
+            </div>
+            <div class="news-card">
+                <span class="news-badge">✅ Caso Real</span>
+                <h3>Residência de Alto Padrão - Serra/ES</h3>
+                <div class="news-date">📅 Novembro 2024</div>
+                <p>Um grupo organizado tentou invadir uma residência durante a noite. O sistema de alarme com sensores de movimento e câmeras com detecção de pessoas identificou a ameaça antes mesmo de qualquer contato físico. A cerca elétrica e o alarme sonoro alertaram toda a vizinhança. As imagens em alta resolução foram fundamentais para a identificação e prisão dos suspeitos.</p>
+                <div class="news-stats">
+                    <div class="news-stat">
+                        <span class="news-stat-value">4</span>
+                        <span class="news-stat-label">Suspeitos</span>
+                    </div>
+                    <div class="news-stat">
+                        <span class="news-stat-value">0</span>
+                        <span class="news-stat-label">Perdas</span>
+                    </div>
+                    <div class="news-stat">
+                        <span class="news-stat-value">100%</span>
+                        <span class="news-stat-label">Segurança</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<section id="contato">
+        <div class="section-header">
+    <h2>Fale Conosco</h2>
+            <p>Entre em contato e solicite seu orçamento</p>
+        </div>
+        <div class="contact-info">
+            <p>📞 <a href="tel:+5527992478228">(27) 99247-8228</a></p>
+            <p>📞 <a href="tel:+5527992427864">(27) 99242-7864</a></p>
+        </div>
+    <form id="contact-form">
+            <div class="form-group">
+                <input type="text" name="user_name" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="user_email" placeholder="Seu e-mail" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
+            </div>
+            <button type="submit">Enviar Mensagem</button>
+    </form>
+</section>
+
+<!-- Carrinho e notificações -->
+<div class="cart-toggle" id="cartToggle" title="Abrir carrinho">
+    🛒
+</div>
+
+<aside class="cart-panel" id="cartPanel" aria-hidden="true">
+    <h3>Seu Carrinho</h3>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+            <strong>Total:</strong>
+            <strong id="cartTotal">R$ 0,00</strong>
+        </div>
+        <button id="checkoutWa" class="checkout-wa">Finalizar no WhatsApp</button>
+        <button id="clearCart" style="margin-top:0.6rem;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:0.5rem 0.75rem;border-radius:10px;">Limpar Carrinho</button>
+    </div>
+</aside>
+
+<div class="purchase-notifs" id="purchaseNotifs"></div>
+
+<div id="success-modal" class="modal">
+    <div class="modal-content">
+            <h2>✅ Mensagem Enviada!</h2>
+            <p>Obrigado pelo contato. Você receberá um e-mail de confirmação em breve.</p>
+        <button id="close-modal">Fechar</button>
+    </div>
+</div>
+
+<footer>
+        <p>📞 <a href="tel:+5527992478228">(27) 99247-8228</a> | 📞 <a href="tel:+5527992427864">(27) 99242-7864</a></p>
+    <p>© 2025 Alarmix - Todos os direitos reservados</p>
+</footer>
+
+    <button class="whatsapp" id="floatingWaBtn" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        <span class="whatsapp-tooltip">Fale conosco no WhatsApp</span>
+    </button>
+
+    <!-- Modal de escolha de número WhatsApp -->
+    <div id="wa-choice-modal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <h2>Escolha um número</h2>
+            <p>Selecione o número para finalizar pelo WhatsApp:</p>
+            <div style="display:flex;flex-direction:column;gap:0.6rem;margin-top:1rem">
+                <button id="waChoiceBtn1" class="checkout-wa">(27) 99762-8740</button>
+                <button id="waChoiceBtn2" class="checkout-wa">(27) 99242-7864</button>
+                <button id="waChoiceClose" style="margin-top:0.6rem;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:0.6rem;border-radius:10px;">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+<script src="js/email.min.js"></script>
+<script>
+        (function() {
+            emailjs.init("pgBWkAm0W7AX-TOei");
+        })();
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        const animatedElements = document.querySelectorAll('section, .service, .feature, .news-card');
+        animatedElements.forEach(el => observer.observe(el));
+
+        // Slides Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slidesWrapper = document.getElementById('slidesWrapper');
+        const slidesControls = document.getElementById('slidesControls');
+
+        // Create dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(i);
+            slidesControls.appendChild(dot);
+        }
+
+        function updateSlides() {
+            slidesWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.slide-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            updateSlides();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlides();
+        }
+
+        // Auto-play slides
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+
+        // Header scroll effect
+const header = document.getElementById('header');
+        let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Form submission
+const modal = document.getElementById('success-modal');
+const closeModalBtn = document.getElementById('close-modal');
+        const contactForm = document.getElementById('contact-form');
+
+        contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Enviando...';
+            submitButton.disabled = true;
+
+    const formData = {
+        user_name: this.user_name.value,
+        user_email: this.user_email.value,
+        message: this.message.value
+    };
+
+    emailjs.send('service_pyxghb6', 'template_6i6hmh6', formData)
+    .then(() => {
+        return emailjs.send('service_pyxghb6', 'template_42nu153', formData);
+    })
+    .then(() => {
+                    modal.classList.add('active');
+        this.reset();
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+    })
+    .catch(err => {
+        console.error("Erro ao enviar:", err);
+                    alert("Ocorreu um erro ao enviar sua mensagem. Tente novamente ou entre em contato pelo WhatsApp.");
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                });
+        });
+
+        // Modal close
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 100;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+    });
+});
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease-in';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // ------------------ Loja / Carrinho / WhatsApp ------------------
+        window.addEventListener('load', () => {
+            const shopPhone = '5527992478228';'5527992427864' // altere se necessário
+            const products = [
+                { id: 'p1', name: 'Kit CFTV - 4 câmeras', price: 1299.90, img: 'images/cftv.jpg' },
+                { id: 'p2', name: 'Kit Alarme Residencial', price: 499.90, img: 'images/alarme.jpg' },
+                { id: 'p3', name: 'Cerca Elétrica - Módulo', price: 799.90, img: 'images/cerca.jpg' },
+                { id: 'p4', name: 'Câmera IP 1080p', price: 249.90, img: 'images/camera-ip.jpg' },
+                { id: 'p5', name: 'Sensor de Movimento', price: 129.90, img: 'images/sensor.jpg' }
+            ];
+
+            const cart = {};
+
+            const productsGrid = document.getElementById('productsGrid');
+            const cartToggle = document.getElementById('cartToggle');
+            const cartPanel = document.getElementById('cartPanel');
+            const cartItemsEl = document.getElementById('cartItems');
+            const cartTotalEl = document.getElementById('cartTotal');
+            const checkoutWa = document.getElementById('checkoutWa');
+            const clearCartBtn = document.getElementById('clearCart');
+            const purchaseNotifs = document.getElementById('purchaseNotifs');
+
+            function formatBRL(value){
+                return 'R$ ' + value.toFixed(2).replace('.', ',');
+            }
+
+            function renderProducts(){
+                productsGrid.innerHTML = '';
+                products.forEach(p => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                        <img src="${p.img}" alt="${p.name}">
+                        <div class="product-name">${p.name}</div>
+                        <div class="product-price">${formatBRL(p.price)}</div>
+                        <button class="add-cart-btn" data-id="${p.id}">Adicionar</button>
+                    `;
+                    productsGrid.appendChild(card);
+                });
+
+                productsGrid.querySelectorAll('.add-cart-btn').forEach(btn => {
+                    btn.addEventListener('click', () => addToCart(btn.dataset.id));
+                });
+            }
+
+            function addToCart(id){
+                const p = products.find(x => x.id === id);
+                if(!p) return;
+                if(!cart[id]) cart[id] = { ...p, qty: 0 };
+                cart[id].qty++;
+                updateCartUI();
+                flashNotif(`${p.name} adicionado ao carrinho`);
+            }
+
+            function updateCartUI(){
+                cartItemsEl.innerHTML = '';
+                let total = 0;
+                Object.values(cart).forEach(item => {
+                    total += item.price * item.qty;
+                    const el = document.createElement('div');
+                    el.className = 'cart-item';
+                    el.innerHTML = `
+                        <img src="${item.img}" alt="${item.name}">
+                        <div style="min-width:0">
+                            <div style="font-weight:700">${item.name}</div>
+                            <div style="font-size:0.9rem;color:var(--text-muted)">${formatBRL(item.price)} x ${item.qty}</div>
+                        </div>
+                        <div class="qty">${item.qty}</div>
+                    `;
+                    cartItemsEl.appendChild(el);
+                });
+                cartTotalEl.textContent = formatBRL(total);
+            }
+
+            function toggleCart(open){
+                if(open === undefined) open = !cartPanel.classList.contains('open');
+                cartPanel.classList.toggle('open', open);
+                cartPanel.setAttribute('aria-hidden', (!open).toString());
+            }
+
+            function createWhatsAppLink(){
+                const lines = [];
+                let total = 0;
+                Object.values(cart).forEach(it => {
+                    lines.push(`${it.qty} x ${it.name} - ${formatBRL(it.price)} cada`);
+                    total += it.price * it.qty;
+                });
+                lines.push('---');
+                lines.push('Total: ' + formatBRL(total));
+                const text = encodeURIComponent(lines.join('\n'));
+                return `https://wa.me/${shopPhone}?text=${text}`;
+            }
+
+            function checkoutToWhatsApp(){
+                if(Object.keys(cart).length === 0){
+                    alert('Seu carrinho está vazio. Adicione produtos antes de finalizar.');
+                    return;
+                }
+                window.open(createWhatsAppLink(), '_blank');
+            }
+
+            function clearCart(){
+                Object.keys(cart).forEach(k => delete cart[k]);
+                updateCartUI();
+            }
+
+            function flashNotif(msg){
+                const el = document.createElement('div');
+                el.className = 'purchase-notif show';
+                el.textContent = msg;
+                purchaseNotifs.appendChild(el);
+                setTimeout(()=>{ el.classList.remove('show'); el.style.transition='opacity 0.6s'; }, 1800);
+                setTimeout(()=> el.remove(), 2600);
+            }
+
+            function showPurchaseNotif(product){
+                const el = document.createElement('div');
+                el.className = 'purchase-notif';
+                el.innerHTML = `<img src="${product.img}" style="width:40px;height:40px;border-radius:6px;object-fit:cover"> <div style="font-size:0.95rem"><strong>${product.name}</strong> comprado agora</div>`;
+                purchaseNotifs.appendChild(el);
+                setTimeout(()=> el.classList.add('show'), 50);
+                setTimeout(()=>{ el.classList.remove('show'); }, 7000);
+                setTimeout(()=> el.remove(), 7600);
+            }
+
+            function simulatePurchase(){
+                const p = products[Math.floor(Math.random()*products.length)];
+                showPurchaseNotif(p);
+            }
+
+            // Eventos
+            cartToggle.addEventListener('click', () => toggleCart());
+            checkoutWa.addEventListener('click', checkoutToWhatsApp);
+            clearCartBtn.addEventListener('click', () => { if(confirm('Limpar carrinho?')) clearCart(); });
+
+            // Inicialização
+            renderProducts();
+            updateCartUI();
+
+            // Simular primeiras notificações: a cada 5 minutos
+            setInterval(simulatePurchase, 300000); // 300000ms = 5min
+
+            // Para demonstrar no carregamento, mostrar uma pequena notificação após 8s
+            setTimeout(() => simulatePurchase(), 8000);
+        });
+</script>
+</body>
+</html>
 
